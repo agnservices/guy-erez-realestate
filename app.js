@@ -29,8 +29,8 @@ function openM(id){const p=props.find(x=>x.id==id);if(!p)return;const rb=ribbonT
    <h3>מתעניינים בנכס?</h3><form class="form" id="pForm"><div class="two"><input name="name" placeholder="שם מלא" required><input name="phone" type="tel" placeholder="טלפון" required></div><input name="email" type="email" placeholder="אימייל"><textarea name="notes" rows="2" placeholder="הודעה (לא חובה)"></textarea>
    <div><button class="btn">שליחת פרטים</button> <a class="btn alt" target="_blank" href="${wa(waMsg(p))}">וואטסאפ על הנכס</a></div></form>`;
   pForm.onsubmit=e=>{e.preventDefault();const f=Object.fromEntries(new FormData(pForm));DB.addLead({...f,propertyId:p.id,property:p.title,source:'טופס נכס'});pForm.reset();toast('תודה! ניצור קשר בהקדם')};
-  modal.classList.add('on');document.body.style.overflow='hidden';location.hash='p'+p.id}
-function closeM(){modal.classList.remove('on');document.body.style.overflow='';history.replaceState(null,'',location.pathname)}
+  modal.classList.add('on');document.body.style.overflow='hidden';location.hash='p'+p.id;waFloat.href=wa(waMsg(p))}
+function closeM(){modal.classList.remove('on');document.body.style.overflow='';history.replaceState(null,'',location.pathname);waFloat.href=wa()}
 modal.onclick=e=>{if(e.target===modal)closeM()};document.onkeydown=e=>e.key==='Escape'&&closeM();
 genForm.onsubmit=e=>{e.preventDefault();DB.addLead({...Object.fromEntries(new FormData(genForm)),property:'',source:'טופס כללי'});genForm.reset();toast('תודה! ניצור קשר בהקדם')};
 if(/^#p\d+/.test(location.hash))openM(location.hash.slice(2));
