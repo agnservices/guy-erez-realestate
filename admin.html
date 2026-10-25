@@ -1,0 +1,17 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ניהול – CRM</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head><body>
+<div class="demo"><b>מצב דמו:</b> הסיסמה (admin123) שמורה בקוד ואינה מאובטחת. הנתונים נשמרים בדפדפן זה בלבד (localStorage).</div>
+<div id="gate" class="wrap" style="max-width:380px;margin-top:60px"><h2>כניסת מנהל</h2><form id="gf" class="form"><input type="password" id="pw" placeholder="סיסמה"><button class="btn">כניסה</button></form></div>
+<div id="app" style="display:none">
+<header><div class="logo" id="logo"></div><nav><a href="index.html" target="_blank">לאתר</a><a href="#" onclick="sessionStorage.clear();location.reload()">יציאה</a></nav></header>
+<div class="wrap">
+<div class="tabs"><button class="btn gray on" data-t="leads">לידים</button><button class="btn gray" data-t="props">נכסים</button><button class="btn gray" data-t="agr">הסכמי תיווך</button></div>
+<section id="t-leads"><h2>לידים <button class="btn sm" onclick="editLead()">+ ליד חדש</button> <button class="btn sm alt" onclick="csv()">ייצוא CSV</button></h2>
+ <div style="margin-bottom:10px;max-width:240px"><select id="lf"><option value="">כל הסטטוסים</option></select></div><div class="scroll"><table id="lt"></table></div></section>
+<section id="t-props" style="display:none"><h2>נכסים <button class="btn sm" onclick="editProp()">+ נכס חדש</button> <button class="btn sm gray" onclick="if(confirm('לאפס לנכסי הדוגמה?')){localStorage.removeItem('tlvre_props');draw()}">איפוס לדוגמה</button></h2><div class="scroll"><table id="pt"></table></div></section>
+<section id="t-agr" style="display:none"><h2>הסכמי תיווך</h2>
+ <div class="contact" style="margin:0 0 20px;background:#fff;color:inherit;box-shadow:0 2px 12px #0001"><h3>יצירת הסכם חדש</h3><div class="form"><div class="two"><select id="aL"></select><select id="aP"></select></div><div class="two"><input id="aF" placeholder="דמי תיווך"><select id="aK"><option value="buyer">לקוח – קונה/שוכר</option><option value="seller">לקוח – מוכר/משכיר</option></select></div><button class="btn" onclick="newAgr()">צור הסכם וקבל קישור לחתימה</button><div id="aOut"></div></div></div>
+ <div class="scroll"><table id="at"></table></div></section>
+</div></div>
+<div class="modal" id="modal"><div class="mbox"><button class="x" onclick="modal.classList.remove('on')">✕</button><div class="mc" id="mC"></div></div></div>
+<script src="config.js"></script><script src="data.js"></script><script src="common.js"></script><script src="admin.js"></script></body></html>

@@ -1,0 +1,22 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>נדל"ן</title><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head><body>
+<div class="demo">גרסת דמו – כל הנכסים, המחירים והתמונות באתר הם דוגמה בלבד ואינם נכסים אמיתיים.</div>
+<header><div class="logo" id="logo"></div><nav><a href="#listings">נכסים</a><a href="#contact">צור קשר</a><a class="btn sm" id="callBtn">התקשרו</a></nav></header>
+<section class="hero"><h1 id="heroT"></h1><p id="heroP"></p><a href="#listings" class="btn">לצפייה בנכסים</a> <a class="btn alt" id="waHero" target="_blank">וואטסאפ</a></section>
+<main class="wrap" id="listings">
+ <div class="filters">
+  <div><label>שכונה</label><select id="fN"><option value="">כל השכונות</option></select></div>
+  <div><label>סוג עסקה</label><select id="fT"><option value="">הכל</option><option value="sale">מכירה</option><option value="rent">השכרה</option></select></div>
+  <div><label>מחיר מינ' (₪)</label><input id="fMin" type="number" min="0"></div>
+  <div><label>מחיר מקס' (₪)</label><input id="fMax" type="number" min="0"></div>
+  <div><label>חדרים (מינימום)</label><select id="fR"><option value="">הכל</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+ </div>
+ <p id="count" style="margin:18px 0 0;color:#667"></p>
+ <div class="grid" id="grid"></div>
+ <section class="contact" id="contact"><h2>השאירו פרטים</h2><p>נחזור אליכם בהקדם עם נכסים שמתאימים בדיוק לכם.</p>
+  <form class="form" id="genForm"><div class="two"><input name="name" placeholder="שם מלא" required><input name="phone" placeholder="טלפון" required type="tel"></div><input name="email" type="email" placeholder="אימייל"><textarea name="notes" rows="3" placeholder="מה אתם מחפשים?"></textarea><button class="btn alt">שליחה</button></form></section>
+</main>
+<footer id="foot"></footer>
+<a class="wa" id="waFloat" target="_blank" aria-label="WhatsApp">✆</a>
+<div class="modal" id="modal"><div class="mbox"><button class="x" onclick="closeM()">✕</button><div class="car" id="mCar"></div><div class="thumbs" id="mTh"></div><div class="mc" id="mC"></div></div></div>
+<script src="config.js"></script><script src="data.js"></script><script src="common.js"></script><script src="app.js"></script></body></html>

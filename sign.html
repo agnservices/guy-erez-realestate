@@ -1,0 +1,19 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>הזמנת שירותי תיווך</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
+<style>#doc{background:#fff;padding:36px;border-radius:12px;line-height:1.75;font-size:15px}#doc h1{text-align:center;font-size:1.5rem}#pad{border:2px dashed #99a;border-radius:10px;width:100%;height:180px;touch-action:none;background:#fff}.fl{border-bottom:1px solid #333;display:inline-block;min-width:140px;font-weight:700}</style></head><body>
+<div class="demo">תבנית כללית לדוגמה בלבד – יש לעבור על נוסח ההסכם עם עורך דין לפני שימוש אמיתי.</div>
+<div class="wrap" style="max-width:860px">
+<div id="doc"></div>
+<div id="fill" class="form" style="background:#fff;padding:24px;border-radius:12px;margin-top:16px">
+ <h3>פרטי הלקוח וחתימה</h3>
+ <div class="two"><input id="cN" placeholder="שם מלא" required><input id="cI" placeholder="מספר תעודת זהות" inputmode="numeric" maxlength="9"></div>
+ <input id="cP" placeholder="טלפון" type="tel">
+ <label>חתימה (ציירו עם האצבע או העכבר):</label><canvas id="pad"></canvas><div><button class="btn sm gray" onclick="clr()">ניקוי חתימה</button></div>
+ <label style="font-size:1rem"><input type="checkbox" id="ok" style="width:auto"> קראתי והבנתי את תנאי ההסכם ואני מסכים/ה להם, ומאשר/ת חתימה אלקטרונית עליו.</label>
+ <button class="btn alt" id="go">חתימה והורדת PDF</button>
+</div>
+<div id="done" style="display:none;text-align:center;padding:20px"><h2>✓ ההסכם נחתם</h2><button class="btn" onclick="pdf()">הורדת PDF שוב</button></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="config.js"></script><script src="data.js"></script><script src="common.js"></script><script src="sign.js"></script></body></html>
