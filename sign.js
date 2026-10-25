@@ -3,9 +3,9 @@ const stored=DB.agreements().find(x=>x.id===A.id);let S=stored?.signed||null;
 cN.value=S?.name||A.leadName||'';cP.value=S?.phone||A.phone||'';
 const F=(v,ph='____________')=>`<span class="fl">${esc(v)||ph}</span>`;
 function doc(){const d=new Date(S?.at||Date.now());const buyer=A.kind!=='seller';
- window.doc_.innerHTML=`<h1>הזמנת שירותי תיווך במקרקעין</h1><p style="text-align:center">לפי חוק המתווכים במקרקעין, התשנ"ו-1996</p>
+ window.doc_.innerHTML=`<div style="text-align:center;font-weight:800;color:#0b4f8a">${esc(C.officeName)} · ${esc(C.officeNameHe)}</div><h1>הזמנת שירותי תיווך במקרקעין</h1><p style="text-align:center">לפי חוק המתווכים במקרקעין, התשנ"ו-1996</p>
  <p>תאריך: ${F(d.toLocaleDateString('he-IL'))}</p>
- <p><b>המתווך:</b> ${esc(C.officeName)}, רישיון תיווך מס' ${esc(C.licenseNo)}, ${esc(C.address)}, טל' ${esc(C.phone)} (להלן: "המתווך").</p>
+ <p><b>המתווך:</b> ${esc(C.officeName)} (${esc(C.officeNameHe)}), רישיון תיווך מס' ${esc(C.licenseNo)}, ${esc(C.address)}, טל' ${esc(C.phone)} (להלן: "המתווך").</p>
  <p><b>הלקוח:</b> שם ${F(S?.name||cN.value)} ת"ז ${F(S?.idNo||cI.value)} טלפון ${F(S?.phone||cP.value)} (להלן: "הלקוח").</p>
  <p><b>הנכס:</b> ${F(A.property,'כפי שיוצג ללקוח על ידי המתווך')}</p>
  <p><b>סוג העסקה:</b> ${buyer?'רכישה / שכירות של הנכס על ידי הלקוח':'מכירה / השכרה של הנכס של הלקוח'}</p>

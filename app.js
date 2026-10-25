@@ -1,8 +1,8 @@
 const C=CONFIG;document.title=C.officeName;
-logo.textContent=C.officeName;heroT.textContent=C.officeName;heroP.textContent=C.tagline;
+logo.innerHTML=esc(C.officeName)+` <small style="font-weight:500;font-size:.75rem;color:#667">${esc(C.officeNameHe)}</small>`;heroT.textContent=C.officeName;heroP.textContent=C.officeNameHe+" · "+C.tagline;
 const wa=(t='')=>`https://wa.me/${C.whatsapp}?text=${encodeURIComponent(t||'שלום, אשמח לפרטים')}`;
 waHero.href=waFloat.href=wa();callBtn.href='tel:'+C.phone;
-foot.innerHTML=`© ${new Date().getFullYear()} ${esc(C.officeName)} · ${esc(C.phone)} · ${esc(C.email)} · רישיון תיווך ${esc(C.licenseNo)}`;
+foot.innerHTML=`© ${new Date().getFullYear()} ${esc(C.officeName)} – ${esc(C.officeNameHe)} · ${esc(C.phone)} · ${esc(C.email)} · רישיון תיווך ${esc(C.licenseNo)}`;
 let props=DB.props();
 [...new Set(props.map(p=>p.neighborhood))].forEach(n=>fN.add(new Option(n,n)));
 function render(){

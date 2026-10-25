@@ -1,6 +1,7 @@
 // ===== הגדרות המשרד – לשנות כאן בלבד =====
 const CONFIG = {
-  officeName: 'נדל"ן תל אביב',
+  officeName: 'Guy Erez Real Estate',
+  officeNameHe: 'גיא ארז נדל"ן',   // subtitle
   tagline: 'תיווך נדל"ן מקצועי בלב תל אביב',
   phone: '03-0000000',          // placeholder
   whatsapp: '972500000000',     // placeholder, international format without +
