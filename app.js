@@ -1,6 +1,7 @@
 const C=CONFIG;document.title=C.officeName;
 logo.innerHTML=esc(C.officeName)+` <small style="font-weight:500;font-size:.75rem;color:#667">${esc(C.officeNameHe)}</small>`;heroT.textContent=C.officeName;heroP.textContent=C.officeNameHe+" · "+C.tagline;
-const waMsg=p=>['שלום, אני מעוניין/ת בנכס הזה:','🏠 '+p.title,'📍 '+[p.street,p.neighborhood,'תל אביב'].filter(Boolean).join(', '),'💰 '+(p.type==='rent'?'השכרה':'מכירה')+': ₪'+Number(p.price).toLocaleString('he-IL')+(p.type==='rent'?' לחודש':''),'🛏 '+p.rooms+' חדרים · '+p.sqm+' מ"ר · קומה '+p.floor,'','אשמח לפרטים נוספים ולתאם צפייה. תודה!'].join('\n');
+const SITE='https://agnservices.github.io/guy-erez-realestate/';const pLink=p=>p.id<1e6?SITE+'p/'+p.id+'.html':SITE+'#p'+p.id;
+const waMsg=p=>[pLink(p),'','שלום, אני מעוניין/ת בנכס הזה:','🏠 '+p.title,'📍 '+[p.street,p.neighborhood,'תל אביב'].filter(Boolean).join(', '),'💰 '+(p.type==='rent'?'השכרה':'מכירה')+': ₪'+Number(p.price).toLocaleString('he-IL')+(p.type==='rent'?' לחודש':''),'🛏 '+p.rooms+' חדרים · '+p.sqm+' מ"ר · קומה '+p.floor,'','אשמח לפרטים נוספים ולתאם צפייה. תודה!'].join('\n');
 const wa=(t='')=>`https://wa.me/${C.whatsapp}?text=${encodeURIComponent(t||'שלום, אשמח לפרטים')}`;
 waHero.href=waFloat.href=wa();callBtn.href='tel:'+C.phone;
 foot.innerHTML=`© ${new Date().getFullYear()} ${esc(C.officeName)} – ${esc(C.officeNameHe)} · ${esc(C.phone)} · ${esc(C.email)} · רישיון תיווך ${esc(C.licenseNo)}`;
