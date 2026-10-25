@@ -1,5 +1,6 @@
 const C=CONFIG;document.title=C.officeName;
 logo.innerHTML=esc(C.officeName)+` <small style="font-weight:500;font-size:.75rem;color:#667">${esc(C.officeNameHe)}</small>`;heroT.textContent=C.officeName;heroP.textContent=C.officeNameHe+" · "+C.tagline;
+const waMsg=p=>['שלום, אני מעוניין/ת בנכס הזה:','🏠 '+p.title,'📍 '+[p.street,p.neighborhood,'תל אביב'].filter(Boolean).join(', '),'💰 '+(p.type==='rent'?'השכרה':'מכירה')+': ₪'+Number(p.price).toLocaleString('he-IL')+(p.type==='rent'?' לחודש':''),'🛏 '+p.rooms+' חדרים · '+p.sqm+' מ"ר · קומה '+p.floor,'','אשמח לפרטים נוספים ולתאם צפייה. תודה!'].join('\n');
 const wa=(t='')=>`https://wa.me/${C.whatsapp}?text=${encodeURIComponent(t||'שלום, אשמח לפרטים')}`;
 waHero.href=waFloat.href=wa();callBtn.href='tel:'+C.phone;
 foot.innerHTML=`© ${new Date().getFullYear()} ${esc(C.officeName)} – ${esc(C.officeNameHe)} · ${esc(C.phone)} · ${esc(C.email)} · רישיון תיווך ${esc(C.licenseNo)}`;
@@ -25,7 +26,7 @@ function openM(id){const p=props.find(x=>x.id==id);if(!p)return;const rb=ribbonT
    <div class="pr">${price(p)}</div><h2 style="margin:4px 0">${esc(p.title)}</h2><div>${esc(p.neighborhood)}, תל אביב · ${p.type==='sale'?'למכירה':'להשכרה'}</div>
    <div class="meta"><span>${p.rooms} חדרים</span><span>${p.sqm} מ"ר</span><span>קומה ${p.floor}</span></div><p>${esc(p.description)}</p>
    <h3>מתעניינים בנכס?</h3><form class="form" id="pForm"><div class="two"><input name="name" placeholder="שם מלא" required><input name="phone" type="tel" placeholder="טלפון" required></div><input name="email" type="email" placeholder="אימייל"><textarea name="notes" rows="2" placeholder="הודעה (לא חובה)"></textarea>
-   <div><button class="btn">שליחת פרטים</button> <a class="btn alt" target="_blank" href="${wa('שלום, אני מתעניין/ת בנכס: '+p.title+' ('+p.neighborhood+')')}">וואטסאפ על הנכס</a></div></form>`;
+   <div><button class="btn">שליחת פרטים</button> <a class="btn alt" target="_blank" href="${wa(waMsg(p))}">וואטסאפ על הנכס</a></div></form>`;
   pForm.onsubmit=e=>{e.preventDefault();const f=Object.fromEntries(new FormData(pForm));DB.addLead({...f,propertyId:p.id,property:p.title,source:'טופס נכס'});pForm.reset();toast('תודה! ניצור קשר בהקדם')};
   modal.classList.add('on');document.body.style.overflow='hidden';location.hash='p'+p.id}
 function closeM(){modal.classList.remove('on');document.body.style.overflow='';history.replaceState(null,'',location.pathname)}
